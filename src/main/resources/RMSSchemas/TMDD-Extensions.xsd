@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by Anne-Claire Kung (Roads & Traffic Authority NSW) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:tns="http://www.tmdd.org/3/messages" 
+  xmlns:ITISLocal="http://www.ITIS-Local-03-00-02" 
+  xmlns:ntcip="http://www.ntcip.org/c2f-object-references" 
+  targetNamespace="http://www.tmdd.org/3/messages" 
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="TMDD.xsd"/>
+	<xs:import namespace="http://www.ITIS-Local-03-00-02" schemaLocation="ITIS-Local-03-00-02.xsd"/>
+	<xs:import namespace="http://www.ntcip.org/c2f-object-references" schemaLocation="NTCIP-References.xsd"/>
+	<xs:complexType name="DetectorDataDetail">
+		<xs:complexContent>
+			<xs:extension base="tns:DetectorDataDetail_TMDD">
+				<xs:sequence>
+					<xs:element name="suspect-data-flag" type="tns:Binary-flag" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EventType">
+		<xs:complexContent>
+			<xs:extension base="tns:EventType_TMDD">
+				<xs:choice>
+					<xs:element name="tunnel-system-fault" type="ITISLocal:TunnelSystemFault" minOccurs="0"/>
+					<xs:element name="tunnel-system-operations" type="ITISLocal:TunnelSystemOperations" minOccurs="0"/>
+					<xs:element name="tow" type="ITISLocal:Tow" minOccurs="0"/>
+					<xs:element name="miscellaneous" type="ITISLocal:Miscellaneous" minOccurs="0"/>
+					<xs:element name="road-occupancy" type="ITISLocal:RoadOccupancy" minOccurs="0"/>
+					<xs:element name="road-use" type="ITISLocal:RoadUse" minOccurs="0"/>
+					<xs:element name="signal-fault" type="ITISLocal:SignalFault" minOccurs="0"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+  
+  <xs:complexType name="DevicePriorityQueueItem">
+    <xs:annotation>
+      <xs:documentation>Includes DMS setting details for all items in the DMS priority queue as per 3.9.0.0.10 update</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="tns:DevicePriorityQueueItem_TMDD">
+        <xs:sequence>
+          <xs:element name="dms-request-command" type="tns:Dms-request-command" minOccurs="0"/>
+          <xs:element name="dms-command-parameters" type="tns:DMSControlDetails" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+	<xs:complexType name="DMSStatus">
+		<xs:annotation>
+			<xs:documentation>Includes a message beacon element as per 3.9.0.0.3 Update</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:DMSStatus_TMDD">
+				<xs:sequence>
+					<xs:element name="message-beacon" type="ntcip:DmsMessageBeacon" minOccurs="0"/>
+					<xs:element name="message-beacon-type" type="ntcip:DmsBeaconType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DeviceStatusHeader">
+		<xs:complexContent>
+			<xs:extension base="tns:DeviceStatusHeader_TMDD">
+				<xs:sequence>
+					<xs:element name="device-error" type="tns:Device-error" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

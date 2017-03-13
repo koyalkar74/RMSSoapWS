@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:tns="http://www.tmdd.org/3/extensions"
+  targetNamespace="http://www.tmdd.org/3/extensions" 
+  elementFormDefault="unqualified" attributeFormDefault="unqualified">
+  <xs:element name="random-element"/>
+  <xs:simpleType name="Archived-data-set-progress-status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Archived-data-set-maintenance-frequency">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Archived-data-set-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Cctv-camera-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Cctv-image-supported">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Cctv-request-command">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Error-report-code">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Destination Unreachable"/>
+      <xs:enumeration value="no valid data available"/>
+      <xs:enumeration value="degraded mode operation"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Detector-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Device-acknowledge-control">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Device-beacon">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Device-communications-status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Device-control-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Device-error">
+    <xs:restriction base="xs:string">
+      <!--TSI-SP-003 device error codes -->
+      <xs:enumeration value="Power failure"/>
+      <xs:enumeration value="Communications time-out"/>
+      <xs:enumeration value="Memory"/>
+      <xs:enumeration value="Battery failure"/>
+      <xs:enumeration value="Internal communications failure"/>
+      <xs:enumeration value="Sign lamp failure"/>
+      <xs:enumeration value="Sign single-LED failure"/>
+      <xs:enumeration value="Sign multi-LED failure"/>
+      <xs:enumeration value="Over-temperature alarm (fan failure)"/>
+      <xs:enumeration value="Under-temperature alarm (heater failure)"/>
+      <xs:enumeration value="Conspicuity device failure"/>
+      <xs:enumeration value="Sign luminance controller failure"/>
+      <xs:enumeration value="Controller reset (via watchdog)"/>
+      <xs:enumeration value="Battery low"/>
+      <xs:enumeration value="Powered off by command"/>
+      <xs:enumeration value="Facility Switch override"/>
+      <xs:enumeration value="Sign display driver failure"/>
+      <xs:enumeration value="Sign firmware mismatch"/>
+      <xs:enumeration value="Sign lamp pair failure"/>
+      <xs:enumeration value="Equipment over-temperature"/>
+      <xs:enumeration value="No response from sensor"/>
+      <xs:enumeration value="Cut sensor cable"/>
+      <xs:enumeration value="Sensor short circuit"/>
+      <xs:enumeration value="Sensor dirty lens"/>
+      <xs:enumeration value="HAR hardware error"/>
+      <xs:enumeration value="HAR radio fault"/>
+      <xs:enumeration value="HAR voice data error"/>
+      <xs:enumeration value="Display time-out error"/>
+      <xs:enumeration value="Backup controller unavailable"/>
+      <xs:enumeration value="Pre-existing or reoccurring fault exists"/>
+      <!--FMS error codes -->
+      <xs:enumeration value="Battery charger"/>
+      <xs:enumeration value="Memory CRC"/>
+      <xs:enumeration value="Fan failure"/>
+      <xs:enumeration value="Setting discrepancy"/>
+      <xs:enumeration value="Unobtainable device"/>
+      <xs:enumeration value="Communications timeout"/>
+      <xs:enumeration value="Watchdog"/>
+      <xs:enumeration value="Dimming discrepancy"/>
+      <xs:enumeration value="Display matrix fault"/>
+      <xs:enumeration value="Amber flasher fault bottom left"/>
+      <xs:enumeration value="Amber flasher fault bottom right"/>
+      <xs:enumeration value="Amber flasher fault top right"/>
+      <xs:enumeration value="No flasher synchronization"/>
+      <!--SCATS error codes -->
+      <xs:enumeration value="Bad scats data"/>
+      <xs:enumeration value="Black out"/>
+      <xs:enumeration value="Clock error"/>
+      <xs:enumeration value="Wrong checksum"/>
+      <xs:enumeration value="Flashing yellow"/>
+      <xs:enumeration value="Invalid RAM"/>
+      <xs:enumeration value="Lamp fault"/>
+      <xs:enumeration value="No carrier"/>
+      <xs:enumeration value="Overdue message"/>
+      <xs:enumeration value="Phase error"/>
+      <xs:enumeration value="Special facilities error"/>
+      <xs:enumeration value="Stopped communicating"/>
+      <xs:enumeration value="Synchronizing request"/>
+      <xs:enumeration value="RAM update failure"/>
+      <xs:enumeration value="Controller validation failure"/>
+      <xs:enumeration value="External device error"/>
+      <xs:enumeration value="Generator at site"/>
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Device-information-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Device-mobility-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Device-operational-status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Device-operation-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Device-return-current-message-snapshot-flag">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Device-sensor-data-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Device-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="moveable median barrier MMB"/>
+      <xs:enumeration value="over height detector OHD"/>
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Dms-request-command">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Dms-sign-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="variable speed limit sign VSLS"/>
+      <xs:enumeration value="tunnel message sign TMS"/>
+      <xs:enumeration value="tunnel stop sign TSS"/>
+      <xs:enumeration value="prepare to stop sign PTSS"/>
+      <xs:enumeration value="changeable message sign CMS"/>
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Ess-data-set-file-access-protocol">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Ess-distribution-group">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Ess-object-name">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Ess-observation-month">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Ess-sensor-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Ess-site-country-code">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Ess-station-comm-method">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Ess-station-maintenance-status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Ess-station-power-source">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-access-level">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-action-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-alternate-route-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-category">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-description-confidence-level">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-detection-method">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-effective-period-qualifier">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-incident-status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-link-categories">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-location-landmark-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-planned-event-class">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-report-medium">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-request-focus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-severity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-timeline-schedule-days-of-the-week">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Event-transit-direction-of-travel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Gate-request-command">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Gate-status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Binary-flag">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Har-request-command">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Intersection-actuation-mode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Intersection-offset-reference">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Intersection-planned-signal-timing-mode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Intersection-signal-control-mode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Intersection-signal-control-source">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Intersection-signal-request-command">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Intersection-signal-timing-mode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Intersection-turning-movement-code">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Time-reference-code">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Turn-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Lcs-lane-current-state">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Lcs-lane-request-command">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Link-alignment">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Link-data-stored">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Link-data-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Link-direction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Link-level-of-service">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Link-median-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Link-oversaturated-flag">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Link-priority-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Link-restriction-units">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Link-speed-limit-units">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Link-status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Link-surface-condition">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Link-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Node-status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Node-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Center-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Organization-information-forwarding-restrictions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Organization-information-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Meter-operational-mode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Ramp-lane-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Route-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Section-signal-control-mode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Section-request-command">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Transportation-network-information-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VS-request-supported-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-extensions-here"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

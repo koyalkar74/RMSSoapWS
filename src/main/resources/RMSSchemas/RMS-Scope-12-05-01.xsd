@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 (http://www.altova.com) by Anne-Claire Kung (Roads & Traffic Authority NSW) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tmdd.org/3/messages" xmlns:ns1="http://www.tmdd.org/3/messages/rms" targetNamespace="http://www.tmdd.org/3/messages/rms" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- This file has been made to allow the specification of the requirements in a clean and simple manner -->
+	<!-- Last Updated on 16/04/2012 -->
+	<!-- Last Update by Ronald Tsang of RMS -->
+	<!-- See TMDD Conformance Document (Spec No MS-SP-003.??) for details on how to use this artefact -->
+	<xs:import namespace="http://www.tmdd.org/3/messages" schemaLocation="TMDD.xsd"/>
+	<xs:annotation>
+		<xs:documentation>The purpose behind this schema is allow the requirement to be selected</xs:documentation>
+	</xs:annotation>
+	<!--Connection Message Requirements -->
+	<xs:element name="centerActiveVerificationRequestMsg" type="tns:CenterActiveVerificationRequest"/>
+	<xs:element name="centerActiveVerificationResponseMsg" type="tns:CenterActiveVerificationResponse"/>
+	<xs:element name="errorReportMsg" type="tns:ErrorReport"/>
+	<!-- Detector Message Requirements -->
+	<!-- Unfortunately, the TMDD isn't very consistent in the element/type structure, this is just a temporary work around -->
+	<xs:element name="detectorDataMsg">
+		<xs:annotation>
+			<xs:documentation>
+				<objectClass>Detector</objectClass>
+				<requirement>REQ1102</requirement>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="10240">
+				<xs:element name="detector-data-item" type="tns:DetectorData"/>
+				<!-- Make sure this is referenced to the target namespace -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="detectorDataRequestMsg" type="tns:DetectorDataRequest"/>
+	<!-- Unfortunately, the TMDD isn't very consistent in the element/type structure, this is just a temporary work around -->
+	<xs:element name="detectorInventoryMsg">
+		<xs:annotation>
+			<xs:documentation>
+				<objectClass>Detector</objectClass>
+				<requirement>REQ1099</requirement>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="10240">
+				<xs:element name="detector-inventory-item" type="tns:DetectorInventory"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- Unfortunately, the TMDD isn't very consistent in the element/type structure, this is just a temporary work around -->
+	<xs:element name="detectorStatusMsg">
+		<xs:annotation>
+			<xs:documentation>
+				<objectClass>Detector</objectClass>
+				<requirement>REQ1100</requirement>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="10240">
+				<xs:element name="detector-status-item" type="tns:DetectorStatus"/>
+				<!-- Make sure this is referenced to the target namespace -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deviceCancelControlRequestMsg" type="tns:DeviceCancelControlRequest"/>
+	<xs:element name="deviceControlResponseMsg" type="tns:DeviceControlResponse"/>
+	<xs:element name="deviceControlStatusRequestMsg" type="tns:DeviceControlStatusRequest"/>
+	<xs:element name="deviceInformationRequestMsg" type="tns:DeviceInformationRequest"/>
+	<xs:element name="devicePriorityQueueRequestMsg" type="tns:DevicePriorityQueueRequest"/>
+	<xs:element name="dMSControlRequestMsg" type="tns:DMSControlRequest"/>
+	<xs:element name="dMSInventoryMsg">
+		<xs:annotation>
+			<xs:documentation>
+				<objectClass>DMS</objectClass>
+				<requirement>REQ1110</requirement>
+			</xs:documentation>
+			<xs:documentation>
+				Unfortunately, the TMDD isn't very consistent in the element/type structure, this is just a temporary work around
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="10240">
+				<xs:element name="dms-inventory-item" type="tns:DMSInventory"/>
+				<!-- Make sure this is referenced to the target namespace -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dMSPriorityQueueMsg">
+		<xs:annotation>
+			<xs:documentation>
+				<objectClass>DMS</objectClass>
+				<requirement>REQ353</requirement>
+			</xs:documentation>
+			<xs:documentation>
+				Unfortunately, the TMDD isn't very consistent in the element/type structure, this is just a temporary work around
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="10240">
+				<xs:element name="dms-priority-queue-item" type="tns:DMSPriorityQueue"/>
+				<!-- Make sure this is referenced to the target namespace -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dMSStatusMsg">
+		<xs:annotation>
+			<xs:documentation>
+				<objectClass>DMS</objectClass>
+				<requirement>REQ1111</requirement>
+			</xs:documentation>
+			<xs:documentation>
+				Unfortunately, the TMDD isn't very consistent in the element/type structure, this is just a temporary work around
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="10240">
+				<xs:element name="dms-status-item" type="tns:DMSStatus"/>
+				<!-- Make sure this is referenced to the target namespace -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="actionLogMsg">
+		<xs:annotation>
+			<xs:documentation>
+				<objectClass>Event</objectClass>
+				<requirement>REQ1071</requirement>
+			</xs:documentation>
+			<xs:documentation>
+				Unfortunately, the TMDD isn't very consistent in the element/type structure, this is just a temporary work around
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="10240">
+				<xs:element name="log-entry" type="tns:ActionLog"/>
+				<!-- Make sure this is referenced to the target namespace -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="eventIndexMsg">
+		<xs:annotation>
+			<xs:documentation>
+				<objectClass>Event</objectClass>
+				<requirement>REQ1304</requirement>
+			</xs:documentation>
+			<xs:documentation>
+				Unfortunately, the TMDD isn't very consistent in the element/type structure, this is just a temporary work around
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="10240">
+				<xs:element name="eventIndex" type="tns:EventIndex"/>
+				<!-- Make sure this is referenced to the target namespace -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="eventRequestMsg" type="tns:EventFilterRequest"/>
+	<xs:element name="fEUMsg">
+		<xs:annotation>
+			<xs:documentation>
+				<objectClass>Event</objectClass>
+				<requirement>REQ1127</requirement>
+			</xs:documentation>
+			<xs:documentation>
+				Unfortunately, the TMDD isn't very consistent in the element/type structure, this is just a temporary work around
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="10240">
+				<xs:element name="FEU" type="tns:FullEventUpdate"/>
+				<!-- Make sure this is referenced to the target namespace -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="lCSStatusMsg">
+		<xs:annotation>
+			<xs:documentation>
+				<objectClass>LCS</objectClass>
+				<requirement>REQ894</requirement>
+			</xs:documentation>
+			<xs:documentation>
+				Unfortunately, the TMDD isn't very consistent in the element/type structure, this is just a temporary work around
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="10240">
+				<xs:element name="lcs-status-item" type="tns:LCSStatus"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

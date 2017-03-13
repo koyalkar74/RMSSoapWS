@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				  xmlns:tns="http://transport.nsw.gov.au/tmc/services/entity/devices/Device_v0"
+				  xmlns:v0p1="http://transport.nsw.gov.au/tmc/services/entity/devices/Device_v0p1"
+				  xmlns:header="http://transport.nsw.gov.au/tmc/schemas/software_component/SOAPHeader/v1"
+				  xmlns:tmdd="http://www.tmdd.org/3/messages"
+				  xmlns:c2c="http://www.ntcip.org/c2c-message-administration"
+				  targetNamespace="http://transport.nsw.gov.au/tmc/services/entity/devices/Device_v0"
+				  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+	<!--
+	<documentation>
+		Device Service  -  Version 0.1
+	</documentation>
+	-->
+	<wsdl:types>
+		<xs:schema xmlns="http://www.w3.org/2001/XMLSchema"
+				   targetNamespace="http://transport.nsw.gov.au/tmc/services/entity/devices/Device_v0p1" attributeFormDefault="qualified"
+				   elementFormDefault="qualified">
+			
+			<!--
+			<xs:include schemaLocation="TMDD.xsd"/>
+			<xs:include schemaLocation="C2C.xsd"/>
+			<xs:include schemaLocation="SOAPHeader_v1.xsd"/>
+			-->
+			<xs:import namespace="http://transport.nsw.gov.au/tmc/schemas/software_component/SOAPHeader/v1" schemaLocation="SOAPHeader_v1.xsd"/>
+			<xs:import namespace="http://www.tmdd.org/3/messages" schemaLocation="TMDD.xsd"/>
+			<xs:import namespace="http://www.ntcip.org/c2c-message-administration" schemaLocation="C2C.xsd"/>
+			<!-- Definition of message types for the operations of the service in v0.1 -->
+			
+			<xs:element name="publishDMSStatus">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="tmdd:dMSStatusMsg"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="publishDMSStatusResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="c2c:c2cMessageReceipt"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="errorReport">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="tmdd:errorReportMsg"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</wsdl:types>
+
+	<wsdl:message name="publishDMSStatus">
+		<wsdl:part name="message" element="v0p1:publishDMSStatus"/>
+		<wsdl:part name="header" element="header:MsgContext"/>
+	</wsdl:message>
+	<wsdl:message name="publishDMSStatusResponse">
+		<wsdl:part name="message" element="v0p1:publishDMSStatusResponse"/>
+		<wsdl:part name="header" element="header:MsgContext"/>
+	</wsdl:message>
+
+	<wsdl:message name="errorReport">
+		<wsdl:part name="message" element="v0p1:errorReport"/>
+	</wsdl:message>
+	<wsdl:portType name="DevicePortType_v0p1">
+		<!-- DMS -->
+		<wsdl:operation name="publishDMSStatus">
+			<!--
+			<wsdl:documentation>
+				<objectClass>DMS</objectClass>
+				<msgPattern>Pub</msgPattern>
+				<requirement>REQ32</requirement>
+			</wsdl:documentation>
+			-->
+			<wsdl:input message="tns:publishDMSStatus"/>
+			<wsdl:output message="tns:publishDMSStatusResponse"/>
+			<wsdl:fault name="errorReport" message="tns:errorReport"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="DeviceSoapHttpBinding_v0p1" type="tns:DevicePortType_v0p1">
+		<!-- <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/> -->
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+
+		<!-- DMS -->
+		<wsdl:operation name="publishDMSStatus">
+			<soap:operation soapAction="urn:PegaRULES:SOAP:Device:Services#PublishDMSStatus" style="document"/>
+			<wsdl:input>
+				<soap:header message="tns:publishDMSStatus" part="header" use="literal"/>
+				<soap:body parts="message" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="tns:publishDMSStatusResponse" part="header" use="literal"/>
+				<soap:body parts="message" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="errorReport">
+				<soap:fault name="errorReport" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+
+	</wsdl:binding>
+	<wsdl:service name="Device_v0p1">
+		<wsdl:port name="DeviceSoapHttpPort" binding="tns:DeviceSoapHttpBinding_v0p1">
+			<soap:address location="http://tmdd.owner.center.com/c2cxml/"/>
+			<!-- Soap address to be replaced during deployment with physical location -->
+		</wsdl:port>
+	</wsdl:service>
+	<!--  Definitions of the message for the service -->
+	<!-- Definition of the service in v0.1 -->
+</wsdl:definitions>
