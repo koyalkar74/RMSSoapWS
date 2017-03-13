@@ -1,0 +1,42 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://transport.nsw.gov.au/tmc/schemas/software_component/SOAPHeader/v1" xmlns:dev="http://transport.nsw.gov.au/tmc/services/entity/devices/Device_v0p1" xmlns:mes="http://www.tmdd.org/3/messages">
+   <soapenv:Header>
+      <v1:MsgContext>
+         <msgSolution>1</msgSolution>
+         <msgCorrelationID>aaaa-bbbb-cccc-dddd</msgCorrelationID>
+         <!--Optional:-->
+         <msgTransaction>1</msgTransaction>
+         <!--Optional:-->
+         <msgSource>RMS</msgSource>
+         <!--Optional:-->
+         <msgDestination>TMCPortal</msgDestination>
+         <!--Optional:-->
+         <msgPriority>1</msgPriority>
+         <!--Optional:-->
+         <msgTimestamp>2001-12-17T09:30:47Z</msgTimestamp>
+         <!--Zero or more repetitions:-->
+      </v1:MsgContext>
+   </soapenv:Header>
+   <soapenv:Body>
+      <dev:publishDMSStatus>
+         <mes:dMSStatusMsg>
+            <!--1 or more repetitions:-->
+            <dms-status-item>
+               <device-status-header>
+                  <organization-information>
+                     <organization-id>abc</organization-id>
+                     <!--Optional:-->
+                     <organization-contact-details>
+                        <contact-id>1as</contact-id>
+                     </organization-contact-details>
+                     <!--Optional:-->
+                     <!--You may enter ANY elements at this point-->
+                  </organization-information>
+                  <device-id>1</device-id>
+                  <device-status>broken</device-status>
+               </device-status-header>
+               <current-message>a</current-message>
+            </dms-status-item>
+         </mes:dMSStatusMsg>
+      </dev:publishDMSStatus>
+   </soapenv:Body>
+</soapenv:Envelope>
