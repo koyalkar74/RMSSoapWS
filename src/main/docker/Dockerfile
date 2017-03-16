@@ -19,7 +19,7 @@ RUN alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 20000
 ENV JAVA_HOME /usr/java/latestVOLUME /tmp
 
 
-ADD producer-app-0.0.1.jar app.jar
+ADD RMSSoapWS-0.0.1-SNAPSHOT.jar app.jar
 RUN sh -c 'touch /app.jar'
 ENV JAVA_OPTS=""
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
